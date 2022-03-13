@@ -12,7 +12,8 @@ scheduler.cron '00 03 * * *' do
     system(off_command)
 end
 
-scheduler.cron '32 15 * * *' do
+scheduler.cron '38 15 * * *' do
     off_command = "vcgencmd display_power 0"
-    system(off_command)
+    p "running #{off_command}" 
+    p system(off_command)
 end
