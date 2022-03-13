@@ -1,6 +1,6 @@
 require 'rufus-scheduler'
 
-scheduler = Rufus::Scheduler.new
+scheduler = Rufus::Scheduler.singleton
 
 scheduler.cron '30 12 * * *' do
     on_command = "vcgencmd display_power 1"
@@ -12,8 +12,7 @@ scheduler.cron '00 03 * * *' do
     system(off_command)
 end
 
-scheduler.cron '38 15 * * *' do
+scheduler.cron '47 15 * * *' do
     off_command = "vcgencmd display_power 0"
-    p "running #{off_command}" 
-    p system(off_command)
+    system(off_command)
 end
