@@ -12,7 +12,7 @@ scheduler.every '5m' do
     # 11pm ET
     evening_hour_utc = 3
 
-    if current_hour_utc >= morning_hour_utc || current_hour_utc <= evening_hour_utc
+    if current_hour_utc >= morning_hour_utc || current_hour_utc < evening_hour_utc
         command = "vcgencmd display_power 1"
     else
         command = "vcgencmd display_power 0"
