@@ -1,6 +1,7 @@
 module Admin
     class SettingsController < ApplicationController
       def show
+        @errors = ActiveModel::Errors.new
         render :show
       end
 
