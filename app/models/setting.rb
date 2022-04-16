@@ -15,7 +15,7 @@ class Setting < RailsSettings::Base
       wife: "Dipti",
       husband: "Ankit"
     },
-    validates: { presence: true, length: { in: 3..5 }
+    validates: { presence: true, length: { in: 3..5 } }
   end
 
   scope :features do
