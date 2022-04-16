@@ -2,9 +2,7 @@
   <% if @errors&.any? %>
     <div class="alert alert-block alert-danger">
       <ul>
-        <% @errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
+          <li><%= @errors.messages %></li>
       </ul>
     </div>
   <% end %>
