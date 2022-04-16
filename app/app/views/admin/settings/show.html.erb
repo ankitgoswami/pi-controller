@@ -1,0 +1,30 @@
+<%= form_for(Setting.new, url: admin_settings_path) do |f| %>
+  <% if @errors.any? %>
+    <div class="alert alert-block alert-danger">
+      <ul>
+        <% @errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group form-checkbox">
+    <label>
+      <%= f.check_box :captcha_enable, checked: Setting.captcha_enable? %>
+      Enable/Disable Captcha
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label">Notification options</label>
+    <%= f.text_area :family_members, value: YAML.dump(Setting.family_members), class: "form-control", style: "height: 180px;"  %>
+    <div class="form-text">
+      Use YAML format to config family_members
+    </div>
+  </div>
+
+  <div>
+    <%= f.submit 'Update Settings' %>
+  </div>
+<% end %>
