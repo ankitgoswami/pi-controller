@@ -1,5 +1,5 @@
 <%= form_for(Setting.new, url: admin_settings_path) do |f| %>
-  <% if @errors.any? %>
+  <% if @errors&.any? %>
     <div class="alert alert-block alert-danger">
       <ul>
         <% @errors.full_messages.each do |msg| %>

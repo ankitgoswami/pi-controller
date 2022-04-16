@@ -1,8 +1,6 @@
 module Admin
     class SettingsController < ApplicationController
-      def show
-        @errors = ActiveModel::Errors.new(self)
-        render :show
+      def new
       end
 
       def create
@@ -18,7 +16,7 @@ module Admin
         end
   
         if @errors.any?
-          render :new
+          render :show
         end
   
         setting_params.keys.each do |key|
