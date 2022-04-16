@@ -1,5 +1,8 @@
 module Admin
     class SettingsController < ApplicationController
+      def show
+      end
+
       def create
         @errors = ActiveModel::Errors.new
         setting_params.keys.each do |key|
