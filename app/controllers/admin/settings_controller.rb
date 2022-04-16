@@ -1,6 +1,7 @@
 module Admin
     class SettingsController < ApplicationController
       def show
+        render :show
       end
 
       def create
