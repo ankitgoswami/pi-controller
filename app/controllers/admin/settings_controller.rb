@@ -16,7 +16,7 @@ module Admin
         end
   
         if @errors.any?
-          render :show
+          render :new
         end
   
         setting_params.keys.each do |key|
