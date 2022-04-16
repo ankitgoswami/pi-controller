@@ -15,7 +15,7 @@
   </div>
 
   <div class="form-group">
-    <label class="control-label">Notification options</label>
+    <label class="control-label">Family Members</label>
     <%= f.text_area :family_members, value: YAML.dump(Setting.family_members), class: "form-control", style: "height: 180px;"  %>
     <div class="form-text">
       Use YAML format to config family_members

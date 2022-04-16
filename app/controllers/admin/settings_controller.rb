@@ -18,12 +18,12 @@ module Admin
         if @errors.any?
           render :new
         end
-  
+
         setting_params.keys.each do |key|
-          Setting.send("#{key}=", setting_params[key].strip) unless setting_params[key].nil?
+          Setting.send("#{key}=", YAML.load(setting_params[key].strip)) unless setting_params[key].nil?
         end
   
-        redirect_to admin_settings_path, notice: "Setting was successfully updated."
+        redirect_to new_admin_settings_path, notice: "Setting was successfully updated."
       end
   
       private

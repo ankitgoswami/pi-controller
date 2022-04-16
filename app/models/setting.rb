@@ -10,12 +10,14 @@ class Setting < RailsSettings::Base
   # field :omniauth_google_client_id, default: (ENV["OMNIAUTH_GOOGLE_CLIENT_ID"] || ""), type: :string, readonly: true
   # field :omniauth_google_client_secret, default: (ENV["OMNIAUTH_GOOGLE_CLIENT_SECRET"] || ""), type: :string, readonly: true
   scope :magic_mirror do
-    field :family_members, type: :hash, default: {
-      dog: "Muffin",
-      wife: "Dipti",
-      husband: "Ankit"
-    },
-    validates: { presence: true, length: { in: 3..5 } }
+    field :family_members,
+      type: :hash,
+      default: {
+        dog: "Muffin",
+        wife: "Dipti",
+        husband: "Ankit"
+      },
+      validates: { presence: true }
   end
 
   scope :features do
