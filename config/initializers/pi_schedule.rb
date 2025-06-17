@@ -2,21 +2,23 @@ require 'rufus-scheduler'
 
 scheduler = Rufus::Scheduler.singleton
 
-scheduler.every '5m' do
-    #on from utc 12 pm to 3 am
-    current_hour_utc = Time.current.hour
+scheduler.every '10m' do
+  Time.use_zone('America/Los_Angeles') do
+    current_hour = Time.current.hour
 
-    # 8 am ET
-    morning_hour_utc = 12
+    # 7 am local time
+    morning_hour = 7
 
-    # 11pm ET
-    evening_hour_utc = 3
+    # 11pm local time
+    evening_hour = 23
 
-    if current_hour_utc >= morning_hour_utc || current_hour_utc < evening_hour_utc
-        command = "vcgencmd display_power 1"
+    # Turn display on between 7am and 11pm (23:00)
+    if current_hour >= morning_hour && current_hour < evening_hour
+      command = "vcgencmd display_power 1"
     else
-        command = "vcgencmd display_power 0"
+      command = "vcgencmd display_power 0"
     end
 
     system(command)
+  end
 end
